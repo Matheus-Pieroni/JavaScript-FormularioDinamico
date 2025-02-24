@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de progressão gradual</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        #progressContainer {
+            background-color: blue;
+            width: 10cm;
+            height: 2cm;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        #progressBar {
+            background-color: yellow;
+            height: 100%;
+            width: 0;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+        }
+
+        #input-space {
+            color:rgb(16, 16, 16);
+        }
+        #input-space #val1   {
+            border-radius: 15px;
+            text-decoration: none;
+        }
+        #input-space #val2 {
+            border-radius: 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="input-space">
+        <label for="val1">Numero Um: </label>
+        <input type="number" id="val1" placeholder="Valor 1 : ">
+        <br>
+        <br>
+        <label for="val2">Numero Dois: </label>
+        <input type="number" id="val2" placeholder="Valor 2 : ">
+        <br>
+        <br>
+    </div>
+    <button onclick='startProccess()'>Começar a progressão.</button>
+    <br>
+    <div id="progressContainer">
+        <div id="progressBar">0%</div>
+    </div>
+    <script>
+        let interval;
+
+        const progressBar = document.getElementById('progressBar');
+        const total = val2 - val1;
+        let atual = val1;
+
+        function startProccess() {
+            clearInterval(interval); // Reseta o intervalo para evitar múltiplos intervalos
+
+            const val1 = parseFloat(document.getElementById('val1').value);
+            const val2 = parseFloat(document.getElementById('val2').value);
+
+            if (isNaN(val1) || isNaN(val2) || val2 <= val1) {
+                alert("Por favor, insira valores válidos, e que o Numero 2 seja maior que o Numero 1.");
+                return;
+            }
+
+            progressBar.style.width = '0%';
+            progressBar.textContent = '0%';
+
+            interval = setInterval(() => {
+                atual += total / 100; // Aumenta progressivamente por 1% a cada intervalo
+                if (atual >= val2) {
+                    atual = val2;
+                    clearInterval(interval);
+                }
+                const percent = ((atual - val1) / total) * 100;
+                progressBar.style.width = percent + '%';
+                progressBar.textContent = percent.toFixed(2) + '%';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

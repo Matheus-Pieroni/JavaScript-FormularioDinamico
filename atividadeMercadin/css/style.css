@@ -1,0 +1,73 @@
+body {
+    background-color: #ff669d;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-size: 25px;
+    font-family: 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+input {
+    border: 10px;
+    border-radius: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+}
+#footer {
+    position: relative;
+    left: -20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#content {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    color: rgba(237, 245, 252, 0.948);
+}
+#cooltext {
+    font-style: italic;
+    animation-name: textolegal;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    color: rgba(237, 245, 252, 0.948);
+}
+#footer-box {
+    position: relative;
+    bottom: -92%;
+    background-color: rgba(255, 0, 208, 0.901);
+    color: rgb(255, 255, 255);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+
+#header {
+position: absolute;
+left: 20;
+top: -30;
+}
+
+#resultado {
+    position: absolute;
+    left: 250%;
+    top: 48%;
+    color: aliceblue;
+    font-size: 40px;
+    }
+
+#calcular {
+    border-radius: 10px;
+    stroke: azure;
+    
+}
+
+#iconeis {
+    position: absolute;
+    scale: 10%;
+    size: 200px;
+    left: 180%;
+    top: -189%;
+    border-radius: 100px;
+}
