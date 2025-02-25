@@ -60,7 +60,8 @@ top: -30;
 #calcular {
     border-radius: 10px;
     stroke: azure;
-    
+    text-decoration: none;
+    border: none;
 }
 
 #iconeis {
